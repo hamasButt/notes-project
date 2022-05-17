@@ -1,6 +1,9 @@
 import {useState} from 'react'
 
 export const AddNote = ({handleNewText}) => {
+
+
+    
     const [noteText, setNoteText] = useState('')
     const charLimit = 200
 

@@ -1,38 +1,37 @@
 import React from 'react'
-import {NoteList} from "./components/NoteList";
-
+import { NoteList } from "./components/NoteList";
 const App = () => {
+
     const [notes, setNotes] = React.useState([
         {
-            id: 0,
-            text: 'this is my notes',
-            dated: ' 10 / 2 / 2022'
+            id: 213123,
+            text: 'Walking',
+            dated: dateBuilder()
         },
         {
-            id: 32,
+            id: 1231123,
             text: 'this is my notes',
-            dated: ' 10 / 2 / 2022'
+            dated: dateBuilder()
         },
         {
-            id: 45,
-            text: 'this is my notes',
-            dated: ' 10 / 2 / 2022'
+            id: 12312123,
+            text: 'Groceries',
+            dated: dateBuilder()
 
         },
     ])
     const handleNewText = (text) => {
-        const date = new Date()
         const newNote = {
-            id: Math.floor(Math.random() * 10000),
-            text,
-            date: date.toLocaleDateString(),
+            id: Math.floor(Math.random() * 123122412),
+            text:text,
+            dated: dateBuilder()
         }
         const newNotes = [...notes, newNote]
         setNotes(newNotes)
     }
 
     const del = (id) => {
-       const newArr =  notes.filter(note => note.id !== id)
+        const newArr = notes.filter(note => note.id !== id)
         setNotes(newArr)
     }
 
@@ -47,3 +46,18 @@ const App = () => {
     );
 }
 export default App
+
+
+const dateBuilder = () => {
+    let d = new Date();
+    let months = ['January', 'February', 'March', 'April', 'May', 'june', 'July', 'August', 'September', 'Octuber', 'November', 'December'];
+    let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    let day = days[d.getDay()];
+    let date = d.getDate();
+    let month = months[d.getMonth()];
+    let year = d.getFullYear();
+
+    return `${day} ${date} ${month} ${year}`;
+
+}
